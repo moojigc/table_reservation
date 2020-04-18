@@ -13,5 +13,9 @@ $('#submit-btn').on('click', (event) => {
         phone: $('#phone-number').val(),
         id: $('#id').val()
     };
+    alert('Reservation added!');
+    $('#name').val('');
+    $('#phone-number').val('');
+    $('#id').val('');
     postReservation(userData);
 })
