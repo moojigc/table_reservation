@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
-const Reservation = require('./Reservation')
+// const Reservation = require('./Reservation')
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -10,8 +10,22 @@ const PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const reservations = [];
-const waitlist = [];
+const reservations = [
+    {
+        routeName: "moojig",
+        name: "Moojig",
+        phone: "555-555-5555",
+        id: 321
+    }
+];
+const waitlist = [
+    {
+        routeName: "sebastian",
+        name: "Sebastian",
+        phone: "333-333-3333",
+        id: 123
+    }
+];
 
 // home page
 app.get('/', function(req, res) {
@@ -38,6 +52,7 @@ app.post('/api/reservations', function(req, res) {
     } else {
         reservations.push(newTable);
     }
+    // 201 means Created
     res.sendStatus(201);
 })
 
