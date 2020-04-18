@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
+var cors = require('cors');
 // const Reservation = require('./Reservation')
 
 const app = express();
