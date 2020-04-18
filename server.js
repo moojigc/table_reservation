@@ -30,8 +30,14 @@ const waitlist = [
 ];
 
 // home page
-app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname, "index.html"));
+app.get('/:page', function(req, res) {
+    const chosen = req.params.page;
+
+    if (!chosen) {
+        res.sendFile(path.join(__dirname, "index.html"));
+    } else {
+        res.sendFile(path.join(__dirname, chosen));
+    }
 })
 
 // all reservations plus waitlist
