@@ -1,4 +1,4 @@
-const reservationURL = 'https://enigmatic-brook-19419.herokuapp.com/api/reservations';
+const reservationURL = '/api/reservations';
 const $reservations = $('#reservations');
 
 
@@ -22,7 +22,14 @@ async function getReservation() {
       </div>`
       $reservations.append($cardTemplate);
     });
+}
 
+async function postReservation() {
+    const post = await $.ajax({
+        url: reservationURL,
+        method: 'POST'
+    });
+    console.log(post);
 }
 
 getReservation();
